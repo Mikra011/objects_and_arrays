@@ -59,7 +59,13 @@
     // evenList(['a']) // should return false
     // evenList(['a', 'b']) // should return true
     function evenList(arr) {
+      if (arr.length % 2 === 0) {
+        return true;
+      } else {
+        return false;
+      }
 
+      // return arr.length % 2 === 0; (brilliant solution!)
     }
 
     // 👉 CHALLENGE 5
@@ -68,8 +74,12 @@
     // 🧠 Examples of usage:
     // firstOrLast(['a', 'b'], true) // should return 'a'
     // firstOrLast(['a', 'b'], false) // should return 'b'
-    function firstOrLast() {
-
+    function firstOrLast(arr, isTrue) {
+      if (isTrue) {
+        return arr[0];
+      } else {
+        return arr[arr.length - 1];
+      }
     }
 
     // 👉 CHALLENGE 6
@@ -78,8 +88,9 @@
     // 🧠 Examples of usage:
     // pushElement([], 1) // should return [1]
     // pushElement(['a', 'b'], 'c') // should return ['a', 'b', 'c']
-    function pushElement() {
-
+    function pushElement(arr, value) {
+      arr.push(value);
+      return arr;
     }
 
     // 👉 CHALLENGE 7
@@ -94,8 +105,16 @@
     // 🧠 At each iteration of the loop, if the current character is not "x", then add it to the end of the result array.
     // 🧠 You can merge the result array back into a string by using join. Example: ["f", "o", "o"].join("") yields "foo"
     // 🧠 Do not forget to return your rejoined string!
-    function stripX() {
-
+    function stripX(string) {
+      let result = [];
+      let split = string.split('');
+      for (let index in split) {
+        let char = split[index];
+        if (char !== 'x') {
+          result.push(char)
+        }
+      }
+      return result.join('');
     }
 
     // 👉 CHALLENGE 8
@@ -107,8 +126,14 @@
     // ❗ Important Notes:
     // 🧠 Try to solve this problem without looking at how you solved the previous one.
     // 🧠 If you need to look, do not copy & paste code. Take a peek and then work from memory!
-    function stripChar() {
-
+    function stripChar(string, char) {
+      let result = '';
+      for (let c of string) {
+        if (c !== char) {
+          result += c;
+        }
+      }
+      return result;
     }
 
     // 👉 CHALLENGE 9
@@ -120,8 +145,14 @@
     // getProps({ lastName: "Smith", age: 35 }) // should return ["lastName"]
     // getProps({ firstName: "Jane", married: false }) // should return ["firstName"]
     // getProps({ name: "Bamby", favFood: "flowers" }) // should return ["name", "favFood"]
-    function getProps() {
-
+    function getProps(obj) {
+      result = [];
+      for (let prop in obj) {
+        if (prop !== 'age' && prop !== 'married') {
+          result.push(prop);
+        }
+      }
+      return result;
     }
 
     // 🧪 TESTS, do not work below this line
